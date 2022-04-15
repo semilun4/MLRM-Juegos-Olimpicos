@@ -12,3 +12,32 @@ Si suponemos que el talento deportivo se reparte equitativamente en los habitant
 También tomaremos en cuenta si el país tuvo o tiene un gobierno soviético-comunista, debido a que en estos regímenes las Olimpiadas eran un instrumento político donde los atletas se entrenan desde muy jóvenes para llegar a un nivel de élite y reflejar el poderío del país.
 
 Otro efecto interesante, en eventos como este, es la confianza que los equipos tienen al haber logrado obtener una medalla en emisiones anteriores. En otras palabras, ganar una medalla en los juegos anteriores aumenta la probabilidad de ganar en la siguiente emisión. Del mismo modo, los países que no ganan medallas pueden repetir ese resultado en un futuro. Por último, tomaremos en cuenta el fenómeno “host”. Luego de analizar los medalleros a lo largo del tiempo, se puede afirmar que el país anfitrión tiene ventajas: el equipo no viaja lejos, entonces está menos fatigado; el orgullo nacional y el hecho de estar familiarizado con las condiciones e instalaciones. Estas dos últimas variables serán evaluadas con variables dummy. Para este análisis, centraremos nuestra atención en los juegos a partir de la década de los noventas, puesto que fue a partir de ese año que el IDH se comenzó a calcular por el Programa de las Naciones Unidas para el Desarrollo (PNUD). De modo que, centraremos la atención en los juegos de 1992 a 2016. En la última competencia (Río 2016), se convocaron 207 naciones. Para fines prácticos tomaremos una muestra de 28 países que se escogerán con dos criterios. El primer punto es la constancia en los juegos, esto es, países con más participaciones en los juegos o que al menos cubran las que se analizarán. En segundo lugar, para tener variación en la muestra tenemos al menos dos participantes por continente; además se tomó en cuenta la accesibilidad a la información de cada país. La fuente de los datos no olímpicos, como el IDH, provienen de las bases de datos del Banco Mundial (BM) y Naciones Unidas (UN). Por otro lado, toda información relacionada con las Olimpiadas, proviene de las páginas del Comité Olímpico Internacional (COI) o en algunos casos del comité de cada nación.
+
+## PLANTEAMIENTO DEL MODELO
+En el curso de econometría, aprendimos que una herramienta para predecir
+es la aplicación del Modelo de Regresión Lineal. En este caso, se quiere
+entender la relación funcional entre la variable dependiente y las variables
+independientes, además de estudias las posibles causas de la variación que se
+pueda dar. En el Modelo de Regresión Lineal Múltiple se define
+
+$𝑦 = 𝛽0 + 𝛽1𝑥1 + 𝛽2𝑥2 + ⋯ + 𝛽𝑘𝑥𝑘 + 𝑢$
+
+Donde
+𝑦: Es la variable dependiente
+𝑥1, 𝑥2, … , 𝑥𝑘: Son las variables independientes
+𝛽0: Es el coeficiente constante o intercepto
+𝛽1, 𝛽2, … , 𝛽𝑘: Son los parámetros desconocidos que estarán bajo el
+efecto ceteris paribus
+𝑢: Es el término de error
+En este trabajo, se propone analizar las variables mencionadas anteriormente
+para el MRLM, que se estructuran de la siguiente forma
+𝑚𝑒𝑑𝑎𝑙𝑠 = 𝛽0 + 𝛽1 𝐼𝐷𝐻 + 𝛽2 𝑙𝑜𝑔𝑝𝑜𝑝 + 𝛽3 𝑤𝑜𝑚𝑒𝑛 + 𝛽4 ℎ𝑜𝑠𝑡 + 𝛽5 𝑔𝑜𝑏
++ 𝛽6 𝑙𝑎𝑠𝑡 + 𝑢
+Donde
+𝑚𝑒𝑑𝑎𝑙𝑠: Es el total de medallas obtenidas por una nación
+𝐼𝐷𝐻: Es el Índice Desarrollo Humano [0,1]
+𝑙𝑜𝑔𝑝𝑜𝑝: Es el logaritmo del total del tamaño de la población
+𝑤𝑜𝑚𝑒𝑛: Indica el número de mujeres participantes
+ℎ𝑜𝑠𝑡: Indica si el país es anfitrión dummy {1,0}
+𝑔𝑜𝑏: Indica si el país tiene o tuvo un gobierno comunista dummy {1,0}
+𝑙𝑎𝑠𝑡: Es la cantidad de medallas obtenidas en los JJOO anteriores
