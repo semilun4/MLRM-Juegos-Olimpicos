@@ -20,7 +20,7 @@ entender la relación funcional entre la variable dependiente y las variables
 independientes, además de estudias las posibles causas de la variación que se
 pueda dar. En el Modelo de Regresión Lineal Múltiple se define
 
-$𝑦 = 𝛽0 + 𝛽1𝑥1 + 𝛽2𝑥2 + ⋯ + 𝛽𝑘𝑥𝑘 + 𝑢$
+𝑦 = 𝛽_0 + 𝛽__1𝑥1 + 𝛽2𝑥2 + ⋯ + 𝛽𝑘𝑥𝑘 + 𝑢
 
 Donde
 𝑦: Es la variable dependiente
